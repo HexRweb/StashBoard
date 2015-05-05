@@ -1,0 +1,27 @@
+main
+{
+	height:calc(100vh - 64px - 52px);
+}
+footer
+{
+	height:50px;
+}
+footer p
+{
+	margin:0;
+	width:100%;
+}
+#globalMenu
+{
+	margin-top:64px;
+}
+#customNav
+{
+	margin-top:65px;
+	height:calc(100vh - 52px - 65px);
+}
+.brand-logo
+{
+	width:240px;
+	text-align:center;
+}
