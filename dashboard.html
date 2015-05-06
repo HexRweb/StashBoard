@@ -1,12 +1,15 @@
 <!doctype html>
 <html>
 	<head>
-		<script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css" type="text/css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.0.0/css/reveal.min.css" type="text/css">
 		<link rel="stylesheet" href="/assets/css/global.css" type="text/css">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
+		<script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.0.0/js/reveal.min.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 	</head>
+	<noscript><style>.dropdown-content, main, .side-nav{display:none;} h1{margin:0;}</style> <div class="noscript center deep-orange darken-4"><h1>Most of the features are disabled. <a href="//enable-javascript.com" target="_blank">Enable Javascript</a></h1></div></noscript>
 	<header>
 		<div class="navbar-fixed">
 			<nav>
@@ -20,24 +23,106 @@
 						<li><a href="#/settings">Settings</a></li>
 					</ul>
 					<ul id="customNav" class="side-nav fixed  deep-orange darken-4 white-text">
-						<li><a class="center white-text" data-activtes="block-1-menu" href="#/block-1/default">Block 1</a></li><div class="divider"></div>
-						<li><a class="center white-text" data-activtes="block-2-menu" href="#/block-2/default">Block 2</a></li><div class="divider"></div>
-						<li><a class="center white-text" data-activtes="block-3-menu" href="#/block-3/default">Block 3</a></li><div class="divider"></div>
-						<li><a class="center white-text" data-activtes="block-4-menu" href="#/block-4/default">Block 4</a></li><div class="divider"></div>
-						<li><a class="center white-text" data-activtes="block-5-menu" href="#/block-5/default">Block 5</a></li><div class="divider"></div>
-						<li><a class="center white-text" data-activtes="block-6-menu" href="#/block-6/default">Block 6</a></li><div class="divider"></div>
-						<li><a class="center white-text" data-activtes="block-7-menu" href="#/block-7/default">Block 7</a></li><div class="divider"></div>
-						<li><a class="center white-text" data-activtes="block-8-menu" href="#/block-8/default">Block 8</a></li><div class="divider"></div>
+						<li><a class="center white-text dropdown-button" data-activates="block-1-menu" href="#/block-1/default">Block 1</a></li><div class="divider"></div>
+						<li><a class="center white-text dropdown-button" data-activates="block-2-menu" href="#/block-2/default">Block 2</a></li><div class="divider"></div>
+						<li><a class="center white-text dropdown-button" data-activates="block-3-menu" href="#/block-3/default">Block 3</a></li><div class="divider"></div>
+						<li><a class="center white-text dropdown-button" data-activates="block-4-menu" href="#/block-4/default">Block 4</a></li><div class="divider"></div>
+						<li><a class="center white-text dropdown-button" data-activates="block-5-menu" href="#/block-5/default">Block 5</a></li><div class="divider"></div>
+						<li><a class="center white-text dropdown-button" data-activates="block-6-menu" href="#/block-6/default">Block 6</a></li><div class="divider"></div>
+						<li><a class="center white-text dropdown-button" data-activates="block-7-menu" href="#/block-7/default">Block 7</a></li><div class="divider"></div>
+						<li><a class="center white-text dropdown-button" data-activates="block-8-menu" href="#/block-8/default">Block 8</a></li><div class="divider"></div>
+						<li><a class="center white-text" href="#/hac">HAC</a></li><div class="divider"></div>
+					</ul>
+					<ul id="block-1-menu" class="dropdown-content block-slideout">
+						<li><a href="#/block-1/default">Default</a></li>
+						<li><a href="#/block-1/testing">Test</a></li>
+					</ul>
+					<ul id="block-2-menu" class="dropdown-content block-slideout">
+						<li><a href="#/block-2/default">Default</a></li>
+						<li><a href="#/block-2/testing">Test</a></li>
+					</ul>
+					<ul id="block-3-menu" class="dropdown-content block-slideout">
+						<li><a href="#/block-3/default">Default</a></li>
+						<li><a href="#/block-3/testing">Test</a></li>
+					</ul>
+					<ul id="block-4-menu" class="dropdown-content block-slideout">
+						<li><a href="#/block-4/default">Default</a></li>
+						<li><a href="#/block-4/testing">Test</a></li>
+					</ul>
+					<ul id="block-5-menu" class="dropdown-content block-slideout">
+						<li><a href="#/block-5/default">Default</a></li>
+						<li><a href="#/block-5/testing">Test</a></li>
+					</ul>
+					<ul id="block-6-menu" class="dropdown-content block-slideout">
+						<li><a href="#/block-6/default">Default</a></li>
+						<li><a href="#/block-6/testing">Test</a></li>
+					</ul>
+					<ul id="block-7-menu" class="dropdown-content block-slideout">
+						<li><a href="#/block-7/default">Default</a></li>
+						<li><a href="#/block-7/testing">Test</a></li>
+					</ul>
+					<ul id="block-8-menu" class="dropdown-content block-slideout">
+						<li><a href="#/block-8/default">Default</a></li>
+						<li><a href="#/block-8/testing">Test</a></li>
 					</ul>
 				</div>
 			</nav>
 		</div>
 	</header>
 	<main class="grey darken-4">
-		
+		<div class="reveal">
+			<div class="slides">
+				<section class="white-text" id="block-1">
+					<section id="default">
+						Blo 1
+					</section>
+				</section>
+				<section class="white-text" id="block-2">
+					<section id="default">
+						Blo 2
+					</section>
+				</section>
+				<section class="white-text" id="block-3">
+					<section id="default">
+						Blo 3
+					</section>
+				</section>
+				<section class="white-text" id="block-4">
+					<section id="default">
+						Blo 4
+					</section>
+				</section>
+				<section class="white-text" id="block-5">
+					<section id="default">
+						Blo 5
+					</section>
+				</section>
+				<section class="white-text" id="block-6">
+					<section id="default">
+						Blo 6
+					</section>
+				</section>
+				<section class="white-text" id="block-7">
+					<section id="default">
+						Blo 7
+					</section>
+				</section>
+				<section class="white-text" id="block-8">
+					<section id="default">
+						Blo 8
+					</section>
+				</section>
+				<section class="white-text" id="hac">
+					<section id="default">
+						Blo 9
+					</section>
+				</section>
+			</div>
+		</div>
 	</main>
 	<footer class="blue-grey darken-4 valign-wrapper"><p class="center white-text valign"><a href="/" target="_blank">StashBoard</a> student dashboard created by <a href="//hexr.org" target="_blank">HexR</a></p></footer>
 	<script type="Text/javascript">
 		$(".dropdown-button").dropdown({hover:true});
+		Reveal.initialize({"progress":false,"controls":false, "history" : true});
 	</script>
 </html>

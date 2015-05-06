@@ -1,6 +1,21 @@
-main
+body
+{
+	background-color:black;
+}
+main, .reveal
 {
 	height:calc(100vh - 64px - 52px);
+	width:calc(100vw - 240px);
+	max-width: calc(100vw - 240px);
+	margin-left:240px;
+}
+.slides
+{
+	width:calc(100vw - 260px) !important;
+}
+.reveal
+{
+	margin:0;
 }
 footer
 {
@@ -11,14 +26,15 @@ footer p
 	margin:0;
 	width:100%;
 }
-#globalMenu
+#globalMenu, .block-slideout
 {
 	margin-top:64px;
 }
 #customNav
 {
 	margin-top:65px;
-	height:calc(100vh - 52px - 65px);
+	margin-bottom:1px;
+	height:calc(100vh - 54px - 65px);
 }
 .brand-logo
 {
