@@ -1,0 +1,19 @@
+.reveal .slides section
+{
+	padding:0;
+	position:relative;
+	font-size:32px;
+	margin-top:calc(50vh - 16px - 64px - 52px);
+}
+.reveal .slides section section
+{
+	position:inherit;
+}
+.framed
+{
+	margin-top:0 !important;
+}
+#settings
+{
+	margin:0;
+}
