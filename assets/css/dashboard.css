@@ -12,6 +12,7 @@
 .framed
 {
 	margin-top:0 !important;
+	max-height:calc(100vh - 52px - 64px)
 }
 #settings
 {
