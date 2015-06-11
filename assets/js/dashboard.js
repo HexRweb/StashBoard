@@ -23,7 +23,9 @@ var stashboard =
 	},
 	user:
 	{
-		accessCenterURL :  "https://accesscenter.roundrockisd.org/HomeAccess/Classes/Classwork#q_login_now"
+		accessCenterURL :  "https://accesscenter.roundrockisd.org/HomeAccess/Classes/Classwork#q_login_now",
+		auth:function(E){window.e = E; window.alert(E); stashboard.user.info = E;},
+		info : null
 	},
 	update:
 	{
@@ -34,7 +36,6 @@ var stashboard =
 				var isLast = i == stashboard.requirements.extensions.length-1;
 				$.ajax(stashboard.requirements.extensions[i]).error(function(d)
 				{
-					console.log(d);
 					document.dispatchEvent(new CustomEvent("stashboardRequirementsUpdate"),{"detail":false});
 				}).success(function()
 				{

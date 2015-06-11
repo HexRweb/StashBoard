@@ -9,7 +9,8 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.0.0/js/reveal.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
 		<script type="text/javascript" src="/assets/js/dashboard.js"></script>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<meta name="google-signin-client_id" content="648747847217-pp3ik1aca4v8hplp89ffl1qt0qvnas39.apps.googleusercontent.com">
 	</head>
 	<noscript><style>.dropdown-content, main, .side-nav{display:none;} h1{margin:0;}</style> <div class="noscript center deep-orange darken-4"><h1>Most of the features are disabled. <a href="//enable-javascript.com" target="_blank">Enable Javascript</a></h1></div></noscript>
 	<header>
@@ -107,7 +108,7 @@
 					<section id="block-8_default_testing">Test 8</section>
 				</section>
 				<section class="white-text" id="hac">Something's not set up right! :(</section>
-				<section class="white-text" id="profile">This is the profile page</section>
+				<section class="white-text" id="profile">This is the profile page<div class="g-signin2" data-onsuccess="onSignIn"></div></section>
 				<section class="white-text" id="settings">This is the settings page</section>
 			</div>
 		</div>
@@ -117,5 +118,9 @@
 		$(".dropdown-button").dropdown({hover:true});
 		Reveal.initialize({"width":"auto","height":"auto","progress":false,"controls":false, "history" : true,"keyboard":false,"overview":false,"fragments":false,"embedded":true,"help":false,"transition":"none","center":false,"viewDistance":1});
 		stashboard.init();
+		function onSignIn(e)
+		{
+			stashboard.user.auth(e);
+		}
 	</script>
 </html>
