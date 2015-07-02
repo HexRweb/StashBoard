@@ -1,83 +1,197 @@
-var stashboard = 
+var stashboard =
 {
-	dimensions:
+	init : function()
 	{
-		availWidth  : $(window).width() - 240,
-		availHeight : $(window).height() - 52 - 64
-	},
-	requirements :
-	{
-		extensions: ["chrome-extension://dnboopdmbbpaicaphfkcphonijbfhopg/assets/logowhite.svg"]
-	},
-	init:function()
-	{
-		var listener = document.addEventListener("stashboardRequirementsUpdate",function(e)
+		stashboard.courses.array = $.map(stashboard.courses,function(e){return e;});
+		$(stashboard.courses.array).each(function(i)
 		{
-			if(e.detail)
-				window.stashboard.update.HAC("loading...","Done loading HAC");
-			else
-				window.Materialize.toast("Some of the requirements are missing");
-			listener = null;
-		});
-		stashboard.update.requirements();
-	},
-	user:
-	{
-		accessCenterURL :  "https://accesscenter.roundrockisd.org/HomeAccess/Classes/Classwork#q_login_now",
-		auth:function(E){window.e = E; window.alert(E); stashboard.user.info = E;},
-		info : null
-	},
-	update:
-	{
-		requirements: function()
-		{
-			for(var i = 0; i  < stashboard.requirements.extensions.length; i++)
+			var $this = $(this)[0], block = i+1;
+			if($this.active)
 			{
-				var isLast = i == stashboard.requirements.extensions.length-1;
-				$.ajax(stashboard.requirements.extensions[i]).error(function(d)
-				{
-					document.dispatchEvent(new CustomEvent("stashboardRequirementsUpdate"),{"detail":false});
-				}).success(function()
-				{
-					if(isLast)
-						document.dispatchEvent(new CustomEvent("stashboardRequirementsUpdate",{"detail":true}));
-				});
+				$("<section id=\"block-"+block+"_"+$this.name+"\">"+$this.name+"</section>").appendTo($("#block-"+block));
+				$("<li><a href=\"#/block-"+block+"_"+$this.name+"\">"+$this.name+"</a></li>").appendTo($("#block-"+block+"-menu"));
 			}
-		},
-		HAC: function(startMessage, endMessage)
+		});
+	},
+	user :
+	{
+		
+	},
+	preferences :
+	{
+		
+	},
+	courses :
+	{
+		1:
 		{
-			if(typeof startMessage === "undefined") startMessage = "Attempting to load HAC";
-			if(typeof endMessage   === "undefined") endMessage   = "Done!";
-			Materialize.toast(startMessage, 1200);
-			$.ajax({url:"chrome-extension://dnboopdmbbpaicaphfkcphonijbfhopg/assets/logowhite.svg"}).success(function()
-			{
-				$.ajax(stashboard.user.accessCenterURL).success(function()
+			active:true,
+			"teacher" : "Davalos",
+			"name" : "Physical Education",
+			"default":"",
+			other_links:
+			[
 				{
-					$("#hac").html("<iframe src='"+stashboard.user.accessCenterURL+"' width='"+stashboard.dimensions.availWidth + "' height='" + stashboard.dimensions.availHeight + "' ></iframe>");
-					$("#hac").addClass("framed blue-grey lighten-5");
-					$(".toast").remove();
-					Materialize.toast("HAC is loading...",2500);
-				}).error(function()
+					"name":"Block 1 test 1",
+					"link":"https://www.facebook.com"
+				},
 				{
-					$("#hac").html("<div class='error'>The Home Access Center URL is not working. <a href='#/settings'>Check your settings</a> or <a href='#/hac' onclick='stashboard.update.HAC()'>try again</a></div>");
-					$(".toast").remove();
-					Materialize.toast("Error!",2000);
-				});
-			}).error(function()
-			{
-				$.ajax(stashboard.user.accessCenterURL).success(function()
+					"name":"Block 1 test 2",
+					"link":"https://www.google.com/plus"
+				},
 				{
-					$("#hac").html("<iframe src='"+stashboard.user.accessCenterURL+"' width='"+stashboard.dimensions.availWidth + "' height='" + stashboard.dimensions.availHeight + "' ></iframe>");
-					$("#hac").addClass("framed blue-grey lighten-5");
-					$(".toast").remove();
-					Materialize.toast("StashBoard works best with <a href='https://chrome.google.com/webstore/detail/quickhac/dnboopdmbbpaicaphfkcphonijbfhopg' target='_blank'>qHAC</a>! You should add it. (<a href='https://chrome.google.com/webstore/detail/quickhac/dnboopdmbbpaicaphfkcphonijbfhopg' target='_blank'>Click here</a>)",0);
-				}).error(function()
+					"name":"Block 1 test 3",
+					"link":"https://www.linkedin.com"
+				}
+			]
+		},
+		2:
+		{
+			active:true,
+			"teacher" : "Wieland",
+			"name" : "Chemistry",
+			other_links:
+			[
 				{
-					$("#hac").html("<div class='error'>The Home Access Center URL is not working. <a href='#/settings'>Check your settings</a> or <a href='#/hac' onclick='stashboard.update.HAC()'>try again</a></div>");
-					$(".toast").remove();
-					Materialize.toast("Error!",2000);
-				});
-			});
-		}
+					"name":"Block 2 test 1",
+					"link":"https://wwww.google.com"
+				},
+				{
+					"name":"Block 2 test 2",
+					"link":"https://www.yahoo.com"
+				},
+				{
+					"name":"Block 2 test 3",
+					"link":"https://www.bing.com"
+				}
+			]
+		},
+		3:
+		{
+			active:true,
+			"teacher" : "Smith",
+			"name" : "English",
+			other_links:
+			[
+				{
+					"name":"Block 3 test 1",
+					"link":"https://www.bankofamerica.com"
+				},
+				{
+					"name":"Block 3 test 2",
+					"link":"https://www.rbfcu.com"
+				},
+				{
+					"name":"Block 3 test 3",
+					"link":"https://www.wellsfargo.com"
+				}
+			]
+		},
+		4:
+		{
+			active:true,
+			"teacher" : "Mickel",
+			"name" : "CompSci",
+			other_links:
+			[
+				{
+					"name":"Block 4 test 1",
+					"link":"https://www.lol.com"
+				},
+				{
+					"name":"Block 4 test 2",
+					"link":"https://www.ifunny.com"
+				},
+				{
+					"name":"Block 4 test 3",
+					"link":"https://www.ifunny.co"
+				}
+			]
+		},
+		5:
+		{
+			active:true,
+			"teacher" : "Llanos",
+			"name" : "Spanish",
+			other_links:
+			[
+				{
+					"name":"Block 5 test 1",
+					"link":"https://www.stumbleupon.com"
+				},
+				{
+					"name":"Block 5 test 2",
+					"link":"https://www.pinterest.com"
+				},
+				{
+					"name":"Block 5 test 3",
+					"link":"https://www.tumblr.com"
+				}
+			]
+		},
+		6:
+		{
+			active:true,
+			"teacher" : "Bray",
+			"name" : "Euro",
+			other_links:
+			[
+				{
+					"name":"Block 6 test 1",
+					"link":"https://www.gmail.com"
+				},
+				{
+					"name":"Block 6 test 2",
+					"link":"https://www.yandex.com"
+				},
+				{
+					"name":"Block 6 test 3",
+					"link":"https://www.mail.com"
+				}
+			]
+		},
+		7:
+		{
+			active:true,
+			"teacher" : "Seidl",
+			"name" : "Biology",
+			other_links:
+			[
+				{
+					"name":"Block 7 test 1",
+					"link":"https://www.codeanywhere.com"
+				},
+				{
+					"name":"Block 7 test 2",
+					"link":"https://www.github.com"
+				},
+				{
+					"name":"Block 7 test 3",
+					"link":"http://www.hexr.org"
+				}
+			]
+		},
+		8:
+		{
+			active:true,
+			"teacher" : "Sullivan",
+			"name" : "Calc AB",
+			other_links:
+			[
+				{
+					"name":"Block 8 test 1",
+					"link":"https://www.linode.com"
+				},
+				{
+					"name":"Block 8 test 2",
+					"link":"https://www.gandi.net"
+				},
+				{
+					"name":"Block 8 test 3",
+					"link":"https://www.browserstack.com"
+				}
+			]
+		},
+		
 	}
 };

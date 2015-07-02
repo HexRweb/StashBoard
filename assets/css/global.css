@@ -20,7 +20,8 @@ footer p
 }
 #globalMenu, .block-slideout
 {
-	margin-top:64px;
+	/*margin-top:64px;*/
+	left:240px !important;
 }
 #customNav
 {

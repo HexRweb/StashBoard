@@ -18,3 +18,20 @@
 {
 	margin:0;
 }
+.side-nav
+{
+	overflow-y:visible;
+}
+.dropdown-content.block-slideout
+{
+	top:-15px;
+	left:240px;
+}
+.side-nav li
+{
+	padding:0;
+}
+.side-nav.fixed a
+{
+	text-align:center;
+}

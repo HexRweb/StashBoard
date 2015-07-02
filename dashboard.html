@@ -39,35 +39,27 @@
 					</ul>
 					<ul id="block-1-menu" class="dropdown-content block-slideout">
 						<li><a href="#/block-1_default">Default</a></li>
-						<li><a href="#/block-1_default_testing">Test</a></li>
 					</ul>
 					<ul id="block-2-menu" class="dropdown-content block-slideout">
 						<li><a href="#/block-2_default">Default</a></li>
-						<li><a href="#/block-2_default_testing">Test</a></li>
 					</ul>
 					<ul id="block-3-menu" class="dropdown-content block-slideout">
 						<li><a href="#/block-3_default">Default</a></li>
-						<li><a href="#/block-3_default_testing">Test</a></li>
 					</ul>
 					<ul id="block-4-menu" class="dropdown-content block-slideout">
 						<li><a href="#/block-4_default">Default</a></li>
-						<li><a href="#/block-4_default_testing">Test</a></li>
 					</ul>
 					<ul id="block-5-menu" class="dropdown-content block-slideout">
 						<li><a href="#/block-5_default">Default</a></li>
-						<li><a href="#/block-5_default_testing">Test</a></li>
 					</ul>
 					<ul id="block-6-menu" class="dropdown-content block-slideout">
 						<li><a href="#/block-6_default">Default</a></li>
-						<li><a href="#/block-6_default_testing">Test</a></li>
 					</ul>
 					<ul id="block-7-menu" class="dropdown-content block-slideout">
 						<li><a href="#/block-7_default">Default</a></li>
-						<li><a href="#/block-7_default_testing">Test</a></li>
 					</ul>
 					<ul id="block-8-menu" class="dropdown-content block-slideout">
 						<li><a href="#/block-8_default">Default</a></li>
-						<li><a href="#/block-8_default_testing">Test</a></li>
 					</ul>
 				</div>
 			</nav>
@@ -78,35 +70,27 @@
 			<div class="slides">
 				<section class="white-text" id="block-1">
 					<section id="block-1_default">Block 1</section>
-					<section id="block-1_default_testing">Test 1</section>
 				</section>
 				<section class="white-text" id="block-2">
 					<section id="block-2_default">Block 2</section>
-					<section id="block-2_default_testing">Test 2</section>
 				</section>
 				<section class="white-text" id="block-3">
 					<section id="block-3_default">Block 3</section>
-					<section id="block-3_default_testing">Test 3</section>
 				</section>
 				<section class="white-text" id="block-4">
 					<section id="block-4_default">Block 4</section>
-					<section id="block-4_default_testing">Test 4</section>
 				</section>
 				<section class="white-text" id="block-5">
 					<section id="block-5_default">Block 5</section>
-					<section id="block-5_default_testing">Test 5</section>
 				</section>
 				<section class="white-text" id="block-6">
 					<section id="block-6_default">Block 6</section>
-					<section id="block-6_default_testing">Test 6</section>
 				</section>
 				<section class="white-text" id="block-7">
 					<section id="block-7_default">Block 7</section>
-					<section id="block-7_default_testing">Test 7</section>
 				</section>
 				<section class="white-text" id="block-8">
 					<section id="block-8_default">Block 8</section>
-					<section id="block-8_default_testing">Test 8</section>
 				</section>
 				<section class="white-text" id="hac">Something's not set up right! :(</section>
 				<section class="white-text" id="profile">This is the profile page<div class="g-signin2" data-onsuccess="onSignIn"></div></section>
@@ -116,9 +100,9 @@
 	</main>
 	<footer class="blue-grey darken-4 valign-wrapper"><p class="center white-text valign"><a href="/" target="_blank">StashBoard</a> student dashboard created by <a href="//hexr.org" target="_blank">HexR</a></p></footer>
 	<script type="Text/javascript">
-		$(".dropdown-button").dropdown({hover:true});
-		Reveal.initialize({"width":"auto","height":"auto","progress":false,"controls":false, "history" : true,"keyboard":false,"overview":false,"fragments":false,"embedded":true,"help":false,"transition":"none","center":false,"viewDistance":1});
 		stashboard.init();
+		$(".dropdown-button").dropdown({hover:true,delay:750,closeOnClick:true,edge:"top"});
+		Reveal.initialize({"width":"auto","height":"auto","progress":false,"controls":false, "history" : true,"keyboard":false,"overview":false,"fragments":false,"embedded":true,"help":false,"transition":"none","center":false,"viewDistance":1});
 		function onSignIn(e)
 		{stashboard.user.auth(e);}
 	</script>
