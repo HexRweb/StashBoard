@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Authorization | StashBoard</title>
+		<script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
+		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<meta name="google-signin-client_id" content="648747847217-420tmnpksdtnvph6960pn2gcbdf7of1p.apps.googleusercontent.com">
+	</head>
+	<body>
+		<main>
+			<div class="g-signin2" data-onsuccess="onSignIn"></div>
+		</main>
+	</body>
+	<script type="text/javascript">
+		function onSignIn(e){console.log(e); window.e = e;}
+	</script>
+</html>

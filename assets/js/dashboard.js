@@ -6,11 +6,19 @@ var stashboard =
 		$(stashboard.courses.array).each(function(i)
 		{
 			var $this = $(this)[0], block = i+1;
+			console.log($this);
 			if($this.active)
 			{
-				$("<section id=\"block-"+block+"_"+$this.name+"\">"+$this.name+"</section>").appendTo($("#block-"+block));
-				$("<li><a href=\"#/block-"+block+"_"+$this.name+"\">"+$this.name+"</a></li>").appendTo($("#block-"+block+"-menu"));
+				$("<section id=\"block-"+block+"_"+$this.name.replace(/ /g, "_")+"\">"+$this.name+"</section>").appendTo($("#block-"+block));
+				$("<li><a href=\"#/block-"+block+"_"+$this.name.replace(/ /g, "_")+"\">"+$this.name+"</a></li>").appendTo($("#block-"+block+"-menu"));
 			}
+			
+			$($this.other_links).each(function(i){
+				$t = $this.other_links[i];
+				$("<section id=\"block-"+block+"_"+$t.name.replace(/ /g,"_")+"\">"+$t.name+"</section>").appendTo($("#block-"+block));
+				$("<li><a href=\"#/block-"+block+"_"+$t.name.replace(/ /g,"_")+"\">"+$t.name+"</a></li>").appendTo($("#block-"+block+"-menu"));
+				
+			});
 		});
 	},
 	user :
