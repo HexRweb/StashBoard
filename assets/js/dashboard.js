@@ -1,7 +1,17 @@
 var stashboard =
 {
-	init : function()
+	CONSTANTS: 
 	{
+		MAX_COURSES: 10
+	},
+	onUnload : function()
+	{
+		alert(document.activeElement.document.referrer);
+		return "Are you sure you want to leave?";
+	},
+	init : function(opts)
+	{
+		window.onbeforeunload = stashboard.onUnload;
 		stashboard.courses.array = $.map(stashboard.courses,function(e){return e;});
 		$(stashboard.courses.array).each(function(i)
 		{
@@ -9,17 +19,33 @@ var stashboard =
 			console.log($this);
 			if($this.active)
 			{
-				$("<section id=\"block-"+block+"_"+$this.name.replace(/ /g, "_")+"\">"+$this.name+"</section>").appendTo($("#block-"+block));
+				$("<section></section>",
+				  {
+						id: "block-" + block + "_" + $this.name.replace(/ /g,"_")
+				}).html($("<iframe></iframe>",
+					{
+						src: $this.link,
+						height: $(window).height - 64 - 52,
+						width: $(window).width - 40
+					})).appendTo($("#block-"+block));
 				$("<li><a href=\"#/block-"+block+"_"+$this.name.replace(/ /g, "_")+"\">"+$this.name+"</a></li>").appendTo($("#block-"+block+"-menu"));
 			}
 			
 			$($this.other_links).each(function(i){
 				$t = $this.other_links[i];
-				$("<section id=\"block-"+block+"_"+$t.name.replace(/ /g,"_")+"\">"+$t.name+"</section>").appendTo($("#block-"+block));
+				$("<section></section>",
+					{id:"block"+block+"_"+$t.name.replace(/ /g,"_")
+					}).html($("<iframe></iframe>"),
+					{
+						src: $t.link,
+						height: $(window).height - 64 -52,
+						width: $(window).width - 40
+				}).appendTo($("#block-"+block));
 				$("<li><a href=\"#/block-"+block+"_"+$t.name.replace(/ /g,"_")+"\">"+$t.name+"</a></li>").appendTo($("#block-"+block+"-menu"));
 				
 			});
 		});
+		opts.callback();
 	},
 	user :
 	{
@@ -83,7 +109,7 @@ var stashboard =
 			[
 				{
 					"name":"Block 3 test 1",
-					"link":"https://www.bankofamerica.com"
+					"link":"https://www.hexr.org"
 				},
 				{
 					"name":"Block 3 test 2",
@@ -91,7 +117,7 @@ var stashboard =
 				},
 				{
 					"name":"Block 3 test 3",
-					"link":"https://www.wellsfargo.com"
+					"link":"https://www.test.com"
 				}
 			]
 		},
@@ -112,7 +138,7 @@ var stashboard =
 				},
 				{
 					"name":"Block 4 test 3",
-					"link":"https://www.ifunny.co"
+					"link":"https://www.yahoo.co.nz"
 				}
 			]
 		},
@@ -133,7 +159,7 @@ var stashboard =
 				},
 				{
 					"name":"Block 5 test 3",
-					"link":"https://www.tumblr.com"
+					"link":"https://www.test.com"
 				}
 			]
 		},
@@ -146,7 +172,7 @@ var stashboard =
 			[
 				{
 					"name":"Block 6 test 1",
-					"link":"https://www.gmail.com"
+					"link":"https://www.live.com"
 				},
 				{
 					"name":"Block 6 test 2",
@@ -171,7 +197,7 @@ var stashboard =
 				},
 				{
 					"name":"Block 7 test 2",
-					"link":"https://www.github.com"
+					"link":"https://www.test.com"
 				},
 				{
 					"name":"Block 7 test 3",
@@ -200,6 +226,5 @@ var stashboard =
 				}
 			]
 		},
-		
 	}
 };

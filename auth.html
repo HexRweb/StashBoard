@@ -9,9 +9,13 @@
 	<body>
 		<main>
 			<div class="g-signin2" data-onsuccess="onSignIn"></div>
+			<div id="return">
+				
+			</div>
 		</main>
 	</body>
 	<script type="text/javascript">
-		function onSignIn(e){console.log(e); window.e = e;}
+		function onSignIn(e){console.log(e); window.e = e;
+												 $("#return").html(e)}
 	</script>
 </html>
