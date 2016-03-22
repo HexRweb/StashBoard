@@ -2,6 +2,9 @@ var stashboard =
 {
 	MAX_FRAMES: 10,
 	DEV: true, //Prevents things like onBeforeUnload from being called
+	section_class : "white-text",
+	frames: [],
+	num_frames: 0,
 	init: function()
 	{
 		$("#alert").leanModal();
@@ -13,9 +16,27 @@ var stashboard =
 			stashboard.dispatchEvent("Stashboard-Err",{err:"Stashboard.sections not object"});
 			return false;
 		}
+		$(stashboard.sections).each(function(e,i)
+		{
+			var info = i;
+			var containerID = info.title.replace(/ /g,"_").toLowerCase();
+			console.log(containerID);
+			$("<section></section>",{id: containerID, class: stashboard.section_class}).html($("<section></section>",{id: containerID + "_default"}).html("Item " + e)).appendTo($(".reveal .slides"));
+		});
+		$(stashboard.sections).each(function(e,i)
+		{
+			var info = i;
+			var containerID = info.title.replace(/ /g,"_").toLowerCase();
+			console.log(containerID);
+			createBlock(containerID,this.section_class).append($("<section></section>",{}));
+		});
 		$("#loading").fadeOut(2500);
 		stashboard.dispatchEvent("Stashboard-Init");
 	},
+	createBlock : function(id, classes)
+	{
+		return $("<section></section>",{id:id, classes: classes}).appendTo($(".reveal .slides"));
+	}
 	dimensions :
 	{
 		window :
