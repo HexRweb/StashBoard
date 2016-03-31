@@ -12,37 +12,49 @@ var stashboard =
 		window.onbeforeunload = stashboard.onBeforeUnload;
 		if((typeof stashboard.sections) !== "object")
 		{
-			$("#alert").html("<div class=\"modal-content\"><h4>Uh-Oh! (Error)</h4><p>StashBoard Sections aren't properly setup. We'd love to help, but documentation for this error is not yet available. Pressing okay will <em>only</em> close this box</p></div><div class=\"modal-footer\"><a href=\"#!\" class=\"modal-action modal-close waves-effect waves-red btn-flat\">Okay</a></div>").openModal();
+			$("#alert").html(stashboard.getTemplate("erroer")).openModal();
 			stashboard.dispatchEvent("Stashboard-Err",{err:"Stashboard.sections not object"});
 			return false;
 		}
-		$(stashboard.sections).each(function(e,i)
-		{
-			var info = i;
-			var containerID = info.title.replace(/ /g,"_").toLowerCase();
-			console.log(containerID);
-			$("<section></section>",{id: containerID, class: stashboard.section_class}).html($("<section></section>",{id: containerID + "_default"}).html("Item " + e)).appendTo($(".reveal .slides"));
-		});
-		$(stashboard.sections).each(function(e,i)
-		{
-			var info = i;
-			var containerID = info.title.replace(/ /g,"_").toLowerCase();
-			console.log(containerID);
-			createBlock(containerID,this.section_class).append($("<section></section>",{}));
-		});
 		$("#loading").fadeOut(2500);
 		stashboard.dispatchEvent("Stashboard-Init");
 	},
 	createBlock : function(id, classes)
 	{
 		return $("<section></section>",{id:id, classes: classes}).appendTo($(".reveal .slides"));
-	}
+	},
+	getTemplate: function(what)
+	{
+		return $("#" + what).prop("tagName") === "TEMPLATE" ? $("#" + what).html() : "<h3 class='center'>There was an error loading this content.</h3> <h5 class='center'>If you email support, please include this error code:</h5><pre class='center'>" + (stashboard.toHex("getTemplate " + what)) + "</pre>";
+	},
+	toHex: function(str)
+	{
+		var arr = [];
+	  for (var i = 0, l = str.length; i < l; i ++) {
+		var hex = Number(str.charCodeAt(i)).toString(16).toUpperCase();
+		arr.push(hex);
+	  }
+	  return arr.join('');
+	},
+	fromHex: function(str)
+	{
+		var hex = str.toString();
+		var ret = '';
+		for (var i = 0; i < hex.length; i += 2)
+			ret += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+		return ret;
+	},
 	dimensions :
 	{
 		window :
 		{
 			width: $(window).width(),
 			height: $(window).height()
+		},
+		contentPane:
+		{
+			width: $(".slides").width(),
+			height: $(".slides").height()
 		}
 	},
 	onErr: function(e)
@@ -51,7 +63,7 @@ var stashboard =
 	},
 	onBeforeUnload : function()
 	{
-		if(!DEV)
+		if(! stashboard.DEV)
 			return "Stashboard takes some time to load";
 	},
 	onResize: function()
@@ -67,3 +79,4 @@ var stashboard =
 		window.dispatchEvent(event);
 	}
 };
+stashboard.dispatchEvent("Stashboard-ready");

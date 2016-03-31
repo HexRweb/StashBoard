@@ -8,62 +8,57 @@
 		<script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.0.0/js/reveal.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
-		<script type="text/javascript" src="assets/js/dashboard.latest.js"></script>
-		<script type="text/javascript" src="assets/js/data.js" async defer></script>
-		<script src="https://apis.google.com/js/platform.js" async defer></script>
-		<script type="text/javascript" src="https://rawgit.com/niklasvh/html2canvas/master/dist/html2canvas.min.js"></script>
+		<script type="text/javascript" src="assets/js/dashboard.latest.js" async></script>
+		<script type="text/javascript" src="assets/js/data.js" async></script>
+		<script src="https://apis.google.com/js/platform.js" async></script>
+		<!--<script type="text/javascript" src="https://rawgit.com/niklasvh/html2canvas/master/dist/html2canvas.min.js"></script>-->
 		<meta name="google-signin-client_id" content="648747847217-pp3ik1aca4v8hplp89ffl1qt0qvnas39.apps.googleusercontent.com">
+		 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 	<noscript><style>.dropdown-content, main, .side-nav{display:none;} h1{margin:0;}</style> <div class="noscript center deep-orange darken-4"><h1>Most of the features are disabled. <a href="//enable-javascript.com" target="_blank">Enable Javascript</a></h1></div></noscript>
 	<body>
 		<div id="loading"></div>
 		<div id="alert" class="modal"></div>
+		<div id="templates">
+			<template id="globalNavItem">
+				<li><a class="center white-text dropdown-button" data-activates="" href=""></a></li>
+			</template>
+			<template id="activationNav">
+				<ul id="" class="dropdown-content block-slideout"></ul>
+			</template>
+			<template id="block">
+				<section id="" class="white-text">
+					<section id=""></section>
+				</section>
+			</template>
+			<template id="iframe">
+				<iframe src=""></iframe>
+			</template>
+			<template id="error">
+				<div class="modal-content">
+					<h4>Uh-Oh! (Error)</h4>
+					<p>StashBoard Sections aren't properly setup. We'd love to help, but documentation for this error is not yet available. Pressing okay will <em>only</em> close this box</p>
+				</div>
+				<div class="modal-footer">
+					<a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Okay</a>
+				</div>
+			</template>
+		</div>
 		<header>
 			<div class="navbar-fixed">
 				<nav>
 					<div class="nav-wrapper deep-orange darken-4">
+						 <a href="#" data-activates="customNav" class="show-on-large button-collapse"><i class="material-icons">menu</i></a>
 						<a href="#" class="brand-logo white-text darken-4">StashBoard</a>
-						<ul class="right hide-on-med-and-down">
+						<ul class="right">
 							<li><a href="#" class="dropdown-button deep-orange darken-2" data-activates="globalMenu">Welcome back, Vikas</a></li>
 						</ul>
 						<ul id="globalMenu" class="dropdown-content">
 							<li><a href="#/profile">Profile</a></li>
 							<li><a href="#/settings">Settings</a></li>
 						</ul>
-						<ul id="customNav" class="side-nav fixed  deep-orange darken-4 white-text">
-							<li><a class="center white-text dropdown-button" data-activates="block-1-menu" href="#/block_1_default">Block 1</a></li><div class="divider"></div>
-							<li><a class="center white-text dropdown-button" data-activates="block-2-menu" href="#/block_2_default">Block 2</a></li><div class="divider"></div>
-							<li><a class="center white-text dropdown-button" data-activates="block-3-menu" href="#/block_3_default">Block 3</a></li><div class="divider"></div>
-							<li><a class="center white-text dropdown-button" data-activates="block-4-menu" href="#/block_4_default">Block 4</a></li><div class="divider"></div>
-							<li><a class="center white-text dropdown-button" data-activates="block-5-menu" href="#/block_5_default">Block 5</a></li><div class="divider"></div>
-							<li><a class="center white-text dropdown-button" data-activates="block-6-menu" href="#/block_6_default">Block 6</a></li><div class="divider"></div>
-							<li><a class="center white-text dropdown-button" data-activates="block-7-menu" href="#/block_7_default">Block 7</a></li><div class="divider"></div>
-							<li><a class="center white-text dropdown-button" data-activates="block-8-menu" href="#/block_8_default">Block 8</a></li><div class="divider"></div>
-							<li><a class="center white-text" href="#/hac">HAC</a></li><div class="divider"></div>
-						</ul>
-						<ul id="block-1-menu" class="dropdown-content block-slideout">
-							<li><a href="#/block_1_default">Default</a></li>
-						</ul>
-						<ul id="block-2-menu" class="dropdown-content block-slideout">
-							<li><a href="#/block_2_default">Default</a></li>
-						</ul>
-						<ul id="block-3-menu" class="dropdown-content block-slideout">
-							<li><a href="#/block_3_default">Default</a></li>
-						</ul>
-						<ul id="block-4-menu" class="dropdown-content block-slideout">
-							<li><a href="#/block_4_default">Default</a></li>
-						</ul>
-						<ul id="block-5-menu" class="dropdown-content block-slideout">
-							<li><a href="#/block_5_default">Default</a></li>
-						</ul>
-						<ul id="block-6-menu" class="dropdown-content block-slideout">
-							<li><a href="#/block_6_default">Default</a></li>
-						</ul>
-						<ul id="block-7-menu" class="dropdown-content block-slideout">
-							<li><a href="#/block_7_default">Default</a></li>
-						</ul>
-						<ul id="block-8-menu" class="dropdown-content block-slideout">
-							<li><a href="#/block_8_default">Default</a></li>
+						<ul id="customNav" class="side-nav deep-orange darken-4 white-text">
+							<div class="divider"></div>
 						</ul>
 					</div>
 				</nav>
@@ -72,47 +67,24 @@
 		<main class="grey darken-4">
 			<div class="reveal">
 				<div class="slides">
-					<!--<section class="white-text" id="block-1">
-						<section id="block-1_default">Block 1</section>
-					</section>
-					<section class="white-text" id="block-2">
-						<section id="block-2_default">Block 2</section>
-					</section>
-					<section class="white-text" id="block-3">
-						<section id="block-3_default">Block 3</section>
-					</section>
-					<section class="white-text" id="block-4">
-						<section id="block-4_default">Block 4</section>
-					</section>
-					<section class="white-text" id="block-5">
-						<section id="block-5_default">Block 5</section>
-					</section>
-					<section class="white-text" id="block-6">
-						<section id="block-6_default">Block 6</section>
-					</section>
-					<section class="white-text" id="block-7">
-						<section id="block-7_default">Block 7</section>
-					</section>
-					<section class="white-text" id="block-8">
-						<section id="block-8_default">Block 8</section>
-					</section>
-					<section class="white-text" id="hac">Something's not set up right! :(</section>-->
-					<!--<section class="white-text" id="profile">This is the profile page<div class="g-signin2" data-onsuccess="onSignIn"></div></section>
-					<section class="white-text" id="settings">This is the settings page</section>!-->
 				</div>
 			</div>
 		</main>
 		<footer class="blue-grey darken-4 valign-wrapper"><p class="center white-text valign"><a href="/" target="_blank">StashBoard</a> student dashboard created by <a href="//hexr.org" target="_blank">HexR</a></p></footer>
-		<script type="text/javascript">
+		<script type="text/javascript" defer>
+			$(window).on("Stashboard-ready",function(e)
+			{
+				window.alert();
+				stashboard.init();
+				$(".dropdown-button").dropdown({hover:true,delay:750,closeOnClick:true,edge:"top"});
+				function onSignIn(e) {stashboard.user.auth(e);}
+				$(".button-collapse").sideNav();
+			});
 			$(window).on("Stashboard-Init",function(e)
 			{
 				console.log("Received event");
 				Reveal.initialize({"width":"auto","height":"auto","progress":false,"controls":false, "history" : true,"keyboard":false,"overview":false,"fragments":false,"embedded":true,"help":false,"transition":"none","center":false,"viewDistance":1});
 			});
-			stashboard.init();
-			$(".dropdown-button").dropdown({hover:true,delay:750,closeOnClick:true,edge:"top"});
-			function onSignIn(e)
-			{stashboard.user.auth(e);}
 		</script>
 	</body>
 </html>

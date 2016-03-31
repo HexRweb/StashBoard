@@ -5,9 +5,9 @@ body
 main
 {
 	height:calc(100vh - 64px - 52px);
-	width:calc(100vw - 240px);
+	/*width:calc(100vw - 240px);
 	max-width: calc(100vw - 240px);
-	margin-left:240px;
+	margin-left:240px;*/
 }
 footer
 {
@@ -18,9 +18,12 @@ footer p
 	margin:0;
 	width:100%;
 }
-#globalMenu, .block-slideout
+#globalMenu
 {
-	/*margin-top:64px;*/
+	margin-top:64px;
+}
+.block-slideout
+{
 	left:240px !important;
 }
 #customNav
@@ -37,4 +40,9 @@ footer p
 .visible 
 {
 	display:block !important;
+}
+.dropdown-content li>a, .dropdown-content li>span
+{
+	padding:0;
+	text-align:center;
 }
