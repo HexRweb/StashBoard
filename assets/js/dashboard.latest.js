@@ -12,7 +12,7 @@ var stashboard =
 		window.onbeforeunload = stashboard.onBeforeUnload;
 		if((typeof stashboard.sections) !== "object")
 		{
-			$("#alert").html(stashboard.getTemplate("erroer")).openModal();
+			$("#alert").html(stashboard.getTemplate("error")).openModal();
 			stashboard.dispatchEvent("Stashboard-Err",{err:"Stashboard.sections not object"});
 			return false;
 		}
@@ -30,18 +30,18 @@ var stashboard =
 	toHex: function(str)
 	{
 		var arr = [];
-	  for (var i = 0, l = str.length; i < l; i ++) {
-		var hex = Number(str.charCodeAt(i)).toString(16).toUpperCase();
-		arr.push(hex);
-	  }
-	  return arr.join('');
+		for (var i = 0, l = str.length; i < l; i ++)
+		{
+			arr.push(Number(str.charCodeAt(i)).toString(16).toUpperCase());
+		}
+		return arr.join('');
 	},
 	fromHex: function(str)
 	{
-		var hex = str.toString();
+		str = str.toString();
 		var ret = '';
-		for (var i = 0; i < hex.length; i += 2)
-			ret += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+		for (var i = 0; i < str.length; i += 2)
+			ret += String.fromCharCode(parseInt(str.substr(i, 2), 16));
 		return ret;
 	},
 	dimensions :
