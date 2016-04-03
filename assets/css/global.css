@@ -28,9 +28,9 @@ footer p
 }
 #customNav
 {
-	margin-top:65px;
+	margin-top:64px;
 	margin-bottom:1px;
-	height:calc(100vh - 54px - 65px);
+	height:calc(100vh - 54px - 64px);
 }
 .brand-logo
 {
@@ -45,4 +45,8 @@ footer p
 {
 	padding:0;
 	text-align:center;
+}
+#globalMenu li a
+{
+	padding:1rem 1rem !important;
 }

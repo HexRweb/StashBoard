@@ -2,9 +2,15 @@ var stashboard =
 {
 	MAX_FRAMES: 10,
 	DEV: true, //Prevents things like onBeforeUnload from being called
+	ROOT_DIR: "hexr.org/stashboard?path=stashboard/",
 	section_class : "white-text",
 	frames: [],
 	num_frames: 0,
+	untitledIndex: 1,
+	submenu_prefix: "block_",
+	submenu_suffix: "_menu",
+	slide_prefix: "block_",
+	slide_suffix: "_default",
 	init: function()
 	{
 		$("#alert").leanModal();
@@ -16,12 +22,51 @@ var stashboard =
 			stashboard.dispatchEvent("Stashboard-Err",{err:"Stashboard.sections not object"});
 			return false;
 		}
-		$("#loading").fadeOut(2500);
+		$(stashboard.sections).each(function(e,i)
+		{
+			console.log(i);
+			i = stashboard.processObject(i);
+			console.log(i);
+			stashboard.addBlock(i,e+1);
+			console.log("Hello");
+		});
+		//$("#loading").fadeOut(2500);
 		stashboard.dispatchEvent("Stashboard-Init");
 	},
-	createBlock : function(id, classes)
+	addBlock: function(blockInfo,block_number)
 	{
-		return $("<section></section>",{id:id, classes: classes}).appendTo($(".reveal .slides"));
+		$("#customNav").append(stashboard.generateGlobalNavItem(block_number));
+		$(stashboard.generateSlideNav(blockInfo.title,block_number)).insertAfter($("#customNav"));
+	},
+	generateGlobalNavItem: function(block_number)
+	{
+		//First, create a navigation block
+		var navigationBlock = stashboard.getTemplate("globalNavItem");
+		navigationBlock = 
+			navigationBlock.replace('{{activator}}',stashboard.submenu_prefix + block_number + stashboard.submenu_suffix)
+			.replace('{{href}}',stashboard.slide_prefix + block_number + stashboard.slide_suffix)
+			.replace("{{link_title}}",block_number);
+		return navigationBlock;
+	},
+	generateSlideNav: function(title, block_number)
+	{
+		var slideBlock = stashboard.getTemplate("activationNav");
+		var liTemplate = stashboard.getTemplate("activationNavItem")
+			.replace("{{slide_id}}",stashboard.slide_prefix + block_number + stashboard.slide_suffix)
+			.replace("{{name}}",title);
+		slideBlock = 
+			slideBlock.replace('{{block_id}}',stashboard.submenu_prefix + block_number + stashboard.submenu_suffix)
+			.replace('{{block_item}}',liTemplate);
+		return slideBlock;
+	},
+	processObject: function(obj)
+	{
+		//For now, the only three properties / objects we're accepting are: title (displayed in nav) url(href) and extensions(sublinks)
+		var ret = {};
+		ret.title = (typeof obj.title === "string") ? obj.title : "Untitled " + stashboard.untitledIndex++;
+		ret.url = (typeof obj.url === "string") ? obj.url : stashboard.ROOT_DIR + "badUrl.html#title=" + ret.title;
+		if(obj.extensions) ret.extensions = obj.extensions;
+		return ret;
 	},
 	getTemplate: function(what)
 	{

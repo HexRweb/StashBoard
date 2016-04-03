@@ -6,14 +6,13 @@
 		<link rel="stylesheet" href="assets/css/global.css" type="text/css">
 		<link rel="stylesheet" href="assets/css/dashboard.css" type="text/css">
 		<script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.0.0/js/reveal.min.js"></script>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
-		<script type="text/javascript" src="assets/js/dashboard.latest.js" async></script>
-		<script type="text/javascript" src="assets/js/data.js" async></script>
-		<script src="https://apis.google.com/js/platform.js" async></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.0.0/js/reveal.min.js" async></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js" async></script>
+		<script type="text/javascript" src="assets/js/dashboard.latest.js"></script>
+		<script type="text/javascript" src="assets/js/data.js"></script>
 		<!--<script type="text/javascript" src="https://rawgit.com/niklasvh/html2canvas/master/dist/html2canvas.min.js"></script>-->
 		<meta name="google-signin-client_id" content="648747847217-pp3ik1aca4v8hplp89ffl1qt0qvnas39.apps.googleusercontent.com">
-		 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 	<noscript><style>.dropdown-content, main, .side-nav{display:none;} h1{margin:0;}</style> <div class="noscript center deep-orange darken-4"><h1>Most of the features are disabled. <a href="//enable-javascript.com" target="_blank">Enable Javascript</a></h1></div></noscript>
 	<body>
@@ -21,10 +20,13 @@
 		<div id="alert" class="modal"></div>
 		<div id="templates">
 			<template id="globalNavItem">
-				<li><a class="center white-text dropdown-button" data-activates="" href=""></a></li>
+				<li><a class="center white-text dropdown-button" data-activates="{{activator}}" href="{{href}}">Block {{link_title}}</a></li><div class="divider"></div>
 			</template>
 			<template id="activationNav">
-				<ul id="" class="dropdown-content block-slideout"></ul>
+				<ul id="{{block_id}}" class="dropdown-content block-slideout">{{block_item}}</ul>
+			</template>
+			<template id="activationNavItem">
+				<li><a href="#/{{slide_id}}">{{name}}</a></li>
 			</template>
 			<template id="block">
 				<section id="" class="white-text">
@@ -48,7 +50,7 @@
 			<div class="navbar-fixed">
 				<nav>
 					<div class="nav-wrapper deep-orange darken-4">
-						 <a href="#" data-activates="customNav" class="show-on-large button-collapse"><i class="material-icons">menu</i></a>
+						<a href="#" data-activates="customNav" class="show-on-large button-collapse"><i class="material-icons">menu</i></a>
 						<a href="#" class="brand-logo white-text darken-4">StashBoard</a>
 						<ul class="right">
 							<li><a href="#" class="dropdown-button deep-orange darken-2" data-activates="globalMenu">Welcome back, Vikas</a></li>
@@ -57,9 +59,7 @@
 							<li><a href="#/profile">Profile</a></li>
 							<li><a href="#/settings">Settings</a></li>
 						</ul>
-						<ul id="customNav" class="side-nav deep-orange darken-4 white-text">
-							<div class="divider"></div>
-						</ul>
+						<ul id="customNav" class="side-nav deep-orange darken-4 white-text"><div class="divider"></div></ul>
 					</div>
 				</nav>
 			</div>
@@ -70,21 +70,25 @@
 				</div>
 			</div>
 		</main>
+		<div id="hiddenContent" class="hide"></div>
 		<footer class="blue-grey darken-4 valign-wrapper"><p class="center white-text valign"><a href="/" target="_blank">StashBoard</a> student dashboard created by <a href="//hexr.org" target="_blank">HexR</a></p></footer>
 		<script type="text/javascript" defer>
-			$(window).on("Stashboard-ready",function(e)
-			{
-				window.alert();
-				stashboard.init();
-				$(".dropdown-button").dropdown({hover:true,delay:750,closeOnClick:true,edge:"top"});
-				function onSignIn(e) {stashboard.user.auth(e);}
-				$(".button-collapse").sideNav();
-			});
 			$(window).on("Stashboard-Init",function(e)
 			{
 				console.log("Received event");
-				Reveal.initialize({"width":"auto","height":"auto","progress":false,"controls":false, "history" : true,"keyboard":false,"overview":false,"fragments":false,"embedded":true,"help":false,"transition":"none","center":false,"viewDistance":1});
+				$(".button-collapse").sideNav();
+				$(".dropdown-button").dropdown({hover:true,delay:750,closeOnClick:true,edge:"top"});
+				//Reveal.initialize({"width":"auto","height":"auto","progress":false,"controls":false, "history" : true,"keyboard":false,"overview":false,"fragments":false,"embedded":true,"help":false,"transition":"none","center":false,"viewDistance":1});
+				$("#loading").fadeOut(2000);
 			});
+			function localLoad(e)
+			{
+				console.log("Initializing Stashboard");
+				stashboard.init();
+			}
+			function onSignIn(e) {stashboard.user.auth(e);}
+			typeof stashboard.init !== "function" ? $(window).on("Stashboard-ready",localLoad) : localLoad();
 		</script>
+		<script src="https://apis.google.com/js/platform.js" async></script>
 	</body>
 </html>
