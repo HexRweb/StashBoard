@@ -29,12 +29,12 @@
 				<li><a href="#/{{slide_id}}">{{name}}</a></li>
 			</template>
 			<template id="block">
-				<section id="" class="white-text">
-					<section id=""></section>
+				<section id="block-{{block_id}}" class="white-text">
+					<section id="{{default_id}}">{{frame}}</section>
 				</section>
 			</template>
 			<template id="iframe">
-				<iframe src=""></iframe>
+				<iframe src="{{source}}" height="100%" width="100%"></iframe>
 			</template>
 			<template id="error">
 				<div class="modal-content">
@@ -78,7 +78,7 @@
 				console.log("Received event");
 				$(".button-collapse").sideNav();
 				$(".dropdown-button").dropdown({hover:true,delay:750,closeOnClick:true,edge:"top"});
-				//Reveal.initialize({"width":"auto","height":"auto","progress":false,"controls":false, "history" : true,"keyboard":false,"overview":false,"fragments":false,"embedded":true,"help":false,"transition":"none","center":false,"viewDistance":1});
+				Reveal.initialize({"width":"auto","height":"auto","progress":false,"controls":false, "history" : true,"keyboard":false,"overview":false,"fragments":false,"embedded":true,"help":false,"transition":"none","center":false,"viewDistance":1});
 				$("#loading").fadeOut(2000);
 			});
 			function localLoad(e)

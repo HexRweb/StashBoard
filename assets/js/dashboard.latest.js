@@ -28,7 +28,6 @@ var stashboard =
 			i = stashboard.processObject(i);
 			console.log(i);
 			stashboard.addBlock(i,e+1);
-			console.log("Hello");
 		});
 		//$("#loading").fadeOut(2500);
 		stashboard.dispatchEvent("Stashboard-Init");
@@ -37,6 +36,7 @@ var stashboard =
 	{
 		$("#customNav").append(stashboard.generateGlobalNavItem(block_number));
 		$(stashboard.generateSlideNav(blockInfo.title,block_number)).insertAfter($("#customNav"));
+		$(".slides").append(stashboard.generateSlide(blockInfo.url,block_number));
 	},
 	generateGlobalNavItem: function(block_number)
 	{
@@ -59,12 +59,20 @@ var stashboard =
 			.replace('{{block_item}}',liTemplate);
 		return slideBlock;
 	},
+	generateSlide: function(source,block_number)
+	{
+		var frame = stashboard.getTemplate("iframe").replace("{{source}}",source)
+		return stashboard.getTemplate("block")
+			.replace("{{block_id}}",block_number)
+			.replace("{{default_id}}",stashboard.slide_prefix + block_number + stashboard.slide_suffix)
+			.replace("{{frame}}",frame)
+	},
 	processObject: function(obj)
 	{
 		//For now, the only three properties / objects we're accepting are: title (displayed in nav) url(href) and extensions(sublinks)
 		var ret = {};
 		ret.title = (typeof obj.title === "string") ? obj.title : "Untitled " + stashboard.untitledIndex++;
-		ret.url = (typeof obj.url === "string") ? obj.url : stashboard.ROOT_DIR + "badUrl.html#title=" + ret.title;
+		ret.url = (typeof obj.url === "string") ? obj.url : stashboard.ROOT_DIR + "badUrl.html#/title=" + ret.title;
 		if(obj.extensions) ret.extensions = obj.extensions;
 		return ret;
 	},

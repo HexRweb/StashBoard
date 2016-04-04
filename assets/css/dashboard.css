@@ -3,7 +3,12 @@
 	padding:0;
 	position:relative;
 	font-size:32px;
-	margin-top:calc(50vh - 16px - 64px - 52px);
+	height:calc(100vh - 64px - 52px);
+	width:100vw;
+}
+.reveal .slides>section, .reveal .slides>section>section
+{
+	padding:0 !important;
 }
 .reveal .slides section section
 {
