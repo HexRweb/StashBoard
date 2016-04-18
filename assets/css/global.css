@@ -1,3 +1,4 @@
+*{font-family:roboto}
 body
 {
 	background-color:black;
@@ -45,8 +46,4 @@ footer p
 {
 	padding:0;
 	text-align:center;
-}
-#globalMenu li a
-{
-	padding:1rem 1rem !important;
 }

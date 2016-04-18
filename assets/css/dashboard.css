@@ -31,6 +31,7 @@
 {
 	top:-15px;
 	left:240px;
+	line-height:22px !important;
 }
 .side-nav li
 {
@@ -53,4 +54,5 @@
 	background-image:url(../img/loading.gif);/* Image from Mark Bennett https://dribbble.com/pixelillusions */
 	background-position:center;
 	background-repeat:no-repeat;
-}
+}.dropdown-content li>a, .dropdown-content li>span { line-height:64px;}
+.brand-logo{width:100%; padding: 5% 0;}

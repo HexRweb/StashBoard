@@ -24,28 +24,38 @@ var stashboard =
 		}
 		$(stashboard.sections).each(function(e,i)
 		{
-			console.log(i);
+			//console.log(i);
 			i = stashboard.processObject(i);
-			console.log(i);
+			//console.log(i);
 			stashboard.addBlock(i,e+1);
 		});
+		stashboard.addBlock({"title":"Calendar",url:"https://calendar.google.com/calendar/embed?src=" + stashboard.calendar},stashboard.sections.length + 2);
 		//$("#loading").fadeOut(2500);
 		stashboard.dispatchEvent("Stashboard-Init");
 	},
 	addBlock: function(blockInfo,block_number)
 	{
-		$("#customNav").append(stashboard.generateGlobalNavItem(block_number));
+		$("#customNav").append(stashboard.generateGlobalNavItem(block_number,blockInfo.title));
 		$(stashboard.generateSlideNav(blockInfo.title,block_number)).insertAfter($("#customNav"));
-		$(".slides").append(stashboard.generateSlide(blockInfo.url,block_number));
+		$(".slides").prepend(stashboard.generateSlide(blockInfo.url,block_number));
+		if(typeof blockInfo.extensions === "object")
+			stashboard.addSubLinks(blockInfo.extensions,block_number);
 	},
-	generateGlobalNavItem: function(block_number)
+	addSubLinks: function(subLinks,block_number)
+	{
+		$(subLinks).each(function()
+		{
+			
+		});
+	},
+	generateGlobalNavItem: function(block_number,title)
 	{
 		//First, create a navigation block
 		var navigationBlock = stashboard.getTemplate("globalNavItem");
 		navigationBlock = 
 			navigationBlock.replace('{{activator}}',stashboard.submenu_prefix + block_number + stashboard.submenu_suffix)
 			.replace('{{href}}',stashboard.slide_prefix + block_number + stashboard.slide_suffix)
-			.replace("{{link_title}}",block_number);
+			.replace("{{link_title}}",title);
 		return navigationBlock;
 	},
 	generateSlideNav: function(title, block_number)
@@ -130,6 +140,11 @@ var stashboard =
 		event.initEvent(type,true,true);
 		$.extend(event,args);
 		window.dispatchEvent(event);
+	},
+	calendar: "ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t",
+	hrefOverride: function()
+	{
+		$(".href_override").click(function(e){e.preventDefault()});
 	}
 };
 stashboard.dispatchEvent("Stashboard-ready");
