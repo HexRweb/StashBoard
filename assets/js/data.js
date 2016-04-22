@@ -36,8 +36,8 @@ stashboard.sections =
 		extensions:[{title:"{{Seventh Section Sublink Title}}",url:"badurl.html#url={{Seventh Section Sublink Webpage}}"}]
 	},
 	{
-		title:"{{Eigth Section Title}}",
-		url:"badUrl.html#url={{Eigth Section Webpage}}",
-		extensions:[{title:"{{Eigth Section Sublink Title}}",url:"badurl.html#url={{Eigth Section Sublink Webpage}}"}]
+		title:"{{eighth Section Title}}",
+		url:"badUrl.html#url={{Eighth Section Webpage}}",
+		extensions:[{title:"{{Eighth Section Sublink Title}}",url:"badurl.html#url={{Eighth Section Sublink Webpage}}"}]
 	}
 ];
