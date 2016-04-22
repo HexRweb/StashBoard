@@ -31,6 +31,7 @@ var stashboard =
 		});
 		stashboard.addBlock({"title":"Calendar",url:"https://calendar.google.com/calendar/embed?src=" + stashboard.calendar},stashboard.sections.length + 2);
 		//$("#loading").fadeOut(2500);
+		$("#customNav li").click(function(){$(".button_collapse").sideNav("hide")});
 		stashboard.dispatchEvent("Stashboard-Init");
 	},
 	addBlock: function(blockInfo,block_number)
