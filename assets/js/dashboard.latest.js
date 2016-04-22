@@ -25,10 +25,11 @@ var stashboard =
 	},
 	save:function()
 	{
-		$("#alert").html(stashboard.getTemplate("saveData")).openModal();
+		$("#alert").closeModal().html(stashboard.getTemplate("saveData")).openModal();
 	},
 	continue: function()
 	{
+		$("#alert").closeModal();
 		stashboard.sectons = stashboard.getData();
 		if(typeof stashboard.sections != "object")
 		{
