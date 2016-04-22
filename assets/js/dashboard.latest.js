@@ -19,13 +19,13 @@ var stashboard =
 		if((typeof stashboard.sections) !== "object")
 		{
 			if(stashboard.getData() == null)
-				$("#alert").html(stashboard.getTemplate("SaveData")).leanModal();
-			else $("#alert").html(stashboard.getTemplate("RequestUpdateData")).leanModal();
+				$("#alert").html(stashboard.getTemplate("SaveData")).openModal();
+			else $("#alert").html(stashboard.getTemplate("RequestUpdateData")).openModal();
 		}
 	},
 	save:function()
 	{
-		$("#alert").html(stashboard.getTemplate("SaveData")).leanModal();
+		$("#alert").html(stashboard.getTemplate("SaveData")).openModal();
 	},
 	continue: function()
 	{
