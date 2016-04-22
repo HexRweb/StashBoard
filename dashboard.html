@@ -114,7 +114,7 @@
 				stashboard.init();
 			}
 			function onSignIn(e) {stashboard.user.auth(e);}
-			typeof stashboard.init !== "function" ? $(window).on("Stashboard-ready",localLoad) : localLoad();
+			(typeof stashboard !=="object" || typeof stashboard.init !== "function") ? $(window).on("Stashboard-ready",localLoad) : localLoad();
 		</script>
 		<!-- <script src="https://apis.google.com/js/platform.js" async></script>!-->
 	</body>
