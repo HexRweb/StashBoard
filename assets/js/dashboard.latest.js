@@ -25,7 +25,8 @@ var stashboard =
 	},
 	save:function()
 	{
-		$("#alert").closeModal().html(stashboard.getTemplate("saveData")).openModal();
+		$("#alert").closeModal();
+		$("#alert").html(stashboard.getTemplate("saveData")).openModal();
 	},
 	continue: function()
 	{
