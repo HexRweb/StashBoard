@@ -1,0 +1,58 @@
+.reveal .slides section
+{
+	padding:0;
+	position:relative;
+	font-size:32px;
+	height:calc(100vh - 64px - 52px);
+	width:100vw;
+}
+.reveal .slides>section, .reveal .slides>section>section
+{
+	padding:0 !important;
+}
+.reveal .slides section section
+{
+	position:inherit;
+}
+.framed
+{
+	margin-top:0 !important;
+	max-height:calc(100vh - 52px - 64px)
+}
+#settings
+{
+	margin:0;
+}
+.side-nav
+{
+	overflow-y:visible;
+}
+.dropdown-content.block-slideout
+{
+	top:-15px;
+	left:240px;
+	line-height:22px !important;
+}
+.side-nav li
+{
+	padding:0;
+}
+.side-nav.fixed a
+{
+	text-align:center;
+}
+#loading
+{
+	height:100vh;
+	width:100vw;
+	opacity:1;
+	z-index:1000;
+	position:absolute;
+	left:0;
+	top:0;
+	background-color:#191F26;
+	background-image:url(../img/loading.gif);/* Image from Mark Bennett https://dribbble.com/pixelillusions */
+	background-position:center;
+	background-repeat:no-repeat;
+}.dropdown-content li>a, .dropdown-content li>span { line-height:64px;}
+.brand-logo{width:100%; padding: 5% 0;}
