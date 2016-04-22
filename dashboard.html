@@ -8,9 +8,8 @@
 		<script type="text/javascript" src="//code.jquery.com/jquery-latest.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.0.0/js/reveal.min.js" async></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js" async></script>
-		<script type="text/javascript" src="assets/js/dashboard.latest.js"></script>
-		<script type="text/javascript" src="assets/js/data.js"></script>
-		<meta name="google-signin-client_id" content="648747847217-pp3ik1aca4v8hplp89ffl1qt0qvnas39.apps.googleusercontent.com">
+		<script type="text/javascript" src="assets/js/dashboard.latest.js" defer></script>
+		<!--<meta name="google-signin-client_id" content="648747847217-pp3ik1aca4v8hplp89ffl1qt0qvnas39.apps.googleusercontent.com">!-->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 	<noscript><style>.dropdown-content, main, .side-nav{display:none;} h1{margin:0;}</style> <div class="noscript center deep-orange darken-4"><h1>Most of the features are disabled. <a href="//enable-javascript.com" target="_blank">Enable Javascript</a></h1></div></noscript>
@@ -42,6 +41,25 @@
 				</div>
 				<div class="modal-footer">
 					<a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat">Okay</a>
+				</div>
+			</template>
+			<template id="saveData">
+				<h4>You're a StashBoard BETA User!</h4>
+				<p>A lot of features aren't quite ready yet. That includes storing your data using Google Drive.</p>
+				<p>Using the instructions, construct the data and enter it here:</p>
+				<input type="textbox" name="data"/>
+				<div class="modal-footer">
+					<a href="#!" onclick="stashboard.processData;"class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+				</div>
+			</template>
+			<template id="RequestUpdateData">
+				<div class="modal-content">
+					<h4>It looks like you have data stored here</h4>
+					<p>Do you want to use this data, or update it?</p>
+				</div>
+				<div class="modal-footer">
+					<a href="#!" onclick="stashboard.continue;"class=" modal-action modal-close waves-effect waves-green btn-flat">Use Data</a>
+					<a href="#!" onclick="stashboard.save;"class=" modal-action modal-close waves-effect waves-red btn-flat">Update Data</a>
 				</div>
 			</template>
 		</div>
@@ -98,6 +116,6 @@
 			function onSignIn(e) {stashboard.user.auth(e);}
 			typeof stashboard.init !== "function" ? $(window).on("Stashboard-ready",localLoad) : localLoad();
 		</script>
-		<script src="https://apis.google.com/js/platform.js" async></script>
+		<!-- <script src="https://apis.google.com/js/platform.js" async></script>!-->
 	</body>
 </html>

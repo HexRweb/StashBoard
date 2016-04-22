@@ -18,10 +18,18 @@ var stashboard =
 		window.onbeforeunload = stashboard.onBeforeUnload;
 		if((typeof stashboard.sections) !== "object")
 		{
-			$("#alert").html(stashboard.getTemplate("error")).openModal();
-			stashboard.dispatchEvent("Stashboard-Err",{err:"Stashboard.sections not object"});
-			return false;
+			if(stashboard.getData() == null)
+				$("#alert").html(getTemplate("SaveData")).leanModal();
+			else $("#alert").html(getTemplate("RequestUpdateData")).leanModal();
 		}
+	},
+	save:function()
+	{
+		$("#alert").html(getTemplate("SaveData")).leanModal();
+	},
+	continue: function()
+	{
+		stashboard.sectons = stashboard.getData();
 		$(stashboard.sections).each(function(e,i)
 		{
 			//console.log(i);
@@ -106,6 +114,18 @@ var stashboard =
 		for (var i = 0; i < str.length; i += 2)
 			ret += String.fromCharCode(parseInt(str.substr(i, 2), 16));
 		return ret;
+	},
+	saveData: function(data)
+	{
+		return window.localStorage.setItem("stashboard-data",data);
+	},
+	getData: function()
+	{
+		return window.localStorage.getItem("stashboard-data");
+	},
+	processData: function()
+	{
+		stashboard.saveData(JSON.parse($("#data").val()));
 	},
 	dimensions :
 	{
