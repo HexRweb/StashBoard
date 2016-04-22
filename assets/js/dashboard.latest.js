@@ -26,7 +26,7 @@ var stashboard =
 	save:function()
 	{
 		$("#alert").closeModal();
-		$("#alert").html(stashboard.getTemplate("saveData")).openModal();
+		setTimeout(function(){$("#alert").html(stashboard.getTemplate("saveData")).openModal();},1000);
 	},
 	continue: function()
 	{
@@ -34,6 +34,7 @@ var stashboard =
 		stashboard.sectons = stashboard.getData();
 		if(typeof stashboard.sections != "object")
 		{
+			setTimeout(function(){$("#alert").html(stashboard.getTemplate("saveData")).openModal();},1000);
 			$("#alert").html(stashboard.getTemplate("saveData")).openModal();
 			return false;
 		}
