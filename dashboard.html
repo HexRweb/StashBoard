@@ -104,12 +104,6 @@
 			});
 			function localLoad(e)
 			{
-				if(typeof stashboard.sections !== "object")
-				{
-					console.log("stashboard.sections not loaded. Waiting 150 ms");
-					setTimeout(localLoad,150);
-					return false;
-				}
 				console.log("Initializing Stashboard");
 				stashboard.init();
 			}
