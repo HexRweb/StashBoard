@@ -2,7 +2,7 @@ var stashboard =
 {
 	MAX_FRAMES: 10,
 	DEV: true, //Prevents things like onBeforeUnload from being called
-	ROOT_DIR: "hexr.org/stashboard?path=stashboard/",
+	ROOT_DIR: "https://hexrweb.github.io/StashBoard/",
 	section_class : "white-text",
 	frames: [],
 	num_frames: 0,

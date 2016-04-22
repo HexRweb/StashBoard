@@ -1,46 +1,43 @@
-stashboard.sections = 
+stashboard.sections =
 [
 	{
-		title :"Block 1",
-		url:"https://sites.google.com/a/roundrockisd.org/mr-sullivan-s-ap-calculus/my-forms",
-		extensions:[{title:"test",url:"https://wolframalpha.com/"}]
+		title :"{{First Section Title}}",
+		url:"/badUrl.html#url={{First Section Webpage}}",
+		extensions:[{title:"{{First Section Sublink Title}}",url:"/badurl.html#url={{First Section Sublink Webpage}}"}]
 	},
 	{
-		title:"Block 2",
-		url:"https://sites.google.com/a/roundrockisd.org/judy-chance-s-page/",
-		extensions:[{title:"test",url:"http://usda.gov"}]
+		title:"{{Second Section Title}}",
+		url:"/badUrl.html#url={{Second Section Webpage}}",
+		extensions:[{title:"{{Second Section Sublink Title}}",url:"/badurl.html#url={{Second Section Sublink Webpage}}"}]
 	},
 	{
-		title:"Block 3",
-		url:"https://sites.google.com/a/roundrockisd.org/kariukicomputerscience/",
-		extensions:[{title:"test",url:"https://hexr.org"}]
+		title:"{{Third Section Title}}",
+		url:"/badUrl.html#url={{Third Section Webpage}}",
+		extensions:[{title:"{{Third Section Sublink Title}}",url:"/badurl.html#url={{Third Section Sublink Webpage}}"}]
 	},
 	{
-		title:"Block 4",
-		url:"https://sites.google.com/a/roundrockisd.org/minter-s-psych/",
-		extensions:[{title:"test",url:"http://vikasdoeshelppeople.x10.mx/stashboard/dashboard/IMG_1272.JPG"}]
+		title:"{{Fourth Section Title}}",
+		url:"/badUrl.html#url={{Fourth Section Webpage}}",
+		extensions:[{title:"{{Fourth Section Sublink Title}}",url:"/badurl.html#url={{Fourth Section Sublink Webpage}}"}]
 	},
 	{
-		title:"Block 5",
-		url:"https://sites.google.com/a/roundrockisd.org/ms-bramlett/",
-		extensions:[{title:"test",url:"http://turnitin.com"},{title:"test",url:"http://sparknotes.com"}]
+		title:"{{Fifth Section Title}}",
+		url:"/badUrl.html#url={{Fifth Section Webpage}}",
+		extensions:[{title:"{{Fifth Section Sublink Title}}",url:"/badurl.html#url={{Fifth Section Sublink Webpage}}"}]
 	},
 	{
-		title:"Block 6",
-		url:"http://www.bit.ly/BujakWebsite",
-		extensions:[]
+		title:"{{Sixth Section Title}}",
+		url:"/badUrl.html#url={{Sixth Section Webpage}}",
+		extensions:[{title:"{{Sixth Section Sublink Title}}",url:"/badurl.html#url={{Sixth Section Sublink Webpage}}"}]
 	},
 	{
-		title:"Block 7",
-		url:"https://sites.google.com/a/roundrockisd.org/mrrussell/",
-		extensions:[{title:"test",url:"my.pltw.org"}]
+		title:"{{Seventh Section Title}}",
+		url:"/badUrl.html#url={{Seventh Section Webpage}}",
+		extensions:[{title:"{{Seventh Section Sublink Title}}",url:"/badurl.html#url={{Seventh Section Sublink Webpage}}"}]
 	},
 	{
-		title:"Block 8",
-		url:"http://teacherweb.com/TX/westwoodhighschool/Mihealsick/index.aspx",
-		extensions:[{title:"test",url:"http://teacherweb.com/TX/westwoodhighschool/Mihealsick/photo5.aspx"}]
-	},
-	{
-		url:"te.s"
+		title:"{{Eigth Section Title}}",
+		url:"/badUrl.html#url={{Eigth Section Webpage}}",
+		extensions:[{title:"{{Eigth Section Sublink Title}}",url:"/badurl.html#url={{Eigth Section Sublink Webpage}}"}]
 	}
 ];
