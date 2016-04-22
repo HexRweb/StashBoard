@@ -1,4 +1,4 @@
-var stashboard = 
+var stashboard =
 {
 	dimensions:
 	{
@@ -16,7 +16,7 @@ var stashboard =
 			if(e.detail)
 				window.stashboard.update.HAC("loading...","Done loading HAC");
 			else
-				window.Materialize.toast("We suggest using   <a href='https://chrome.google.com/webstore/detail/quickhac/dnboopdmbbpaicaphfkcphonijbfhopg' target='_blank'> qHAC</a>");
+				window.Materialize.toast("We suggest using <a href='https://chrome.google.com/webstore/detail/quickhac/dnboopdmbbpaicaphfkcphonijbfhopg' target='_blank'> qHAC</a>");
 			listener = null;
 		});
 		stashboard.update.requirements();

@@ -45,14 +45,14 @@ var stashboard =
 	{
 		$(subLinks).each(function()
 		{
-			
+
 		});
 	},
 	generateGlobalNavItem: function(block_number,title)
 	{
 		//First, create a navigation block
 		var navigationBlock = stashboard.getTemplate("globalNavItem");
-		navigationBlock = 
+		navigationBlock =
 			navigationBlock.replace('{{activator}}',stashboard.submenu_prefix + block_number + stashboard.submenu_suffix)
 			.replace('{{href}}',stashboard.slide_prefix + block_number + stashboard.slide_suffix)
 			.replace("{{link_title}}",title);
@@ -64,7 +64,7 @@ var stashboard =
 		var liTemplate = stashboard.getTemplate("activationNavItem")
 			.replace("{{slide_id}}",stashboard.slide_prefix + block_number + stashboard.slide_suffix)
 			.replace("{{name}}",title);
-		slideBlock = 
+		slideBlock =
 			slideBlock.replace('{{block_id}}',stashboard.submenu_prefix + block_number + stashboard.submenu_suffix)
 			.replace('{{block_item}}',liTemplate);
 		return slideBlock;
@@ -131,8 +131,8 @@ var stashboard =
 	},
 	onResize: function()
 	{
-		stashboard.dimensions.window.width = $(window).width();	
-		stashboard.dimensions.window.height = $(window).height();	
+		stashboard.dimensions.window.width = $(window).width();
+		stashboard.dimensions.window.height = $(window).height();
 	},
 	dispatchEvent: function(type,args)
 	{
