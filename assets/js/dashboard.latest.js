@@ -30,6 +30,11 @@ var stashboard =
 	continue: function()
 	{
 		stashboard.sectons = stashboard.getData();
+		if(typeof stashboard.sections != "object")
+		{
+			$("#alert").html(stashboard.getTemplate("saveData")).openModal();
+			return false;
+		}
 		$(stashboard.sections).each(function(e,i)
 		{
 			//console.log(i);
