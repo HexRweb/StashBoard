@@ -55,4 +55,4 @@
 	background-position:center;
 	background-repeat:no-repeat;
 }.dropdown-content li>a, .dropdown-content li>span { line-height:64px;}
-.brand-logo{width:100%; padding: 5% 0;}
+.brand-logo{max-width:100%; width:initial; margin: 0 2.5%;}
